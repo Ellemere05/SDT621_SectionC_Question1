@@ -24,7 +24,7 @@ namespace SDT621_SectionC_Question1
             string make = txtMake.Text;
             int quantity = 0;
 
-            if (!validateCodeTextbox(code)) return;
+            if (!validateCodeTextbox(code, "add")) return;
 
             if (string.IsNullOrWhiteSpace(make))
             {
@@ -57,7 +57,7 @@ namespace SDT621_SectionC_Question1
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string code = txtCode.Text;
-            if (!validateCodeTextbox(code)) return;
+            if (!validateCodeTextbox(code, "delete")) return;
 
             for (int i = 1; i < tblMobilePhones.RowCount; i++)
             {
@@ -83,14 +83,14 @@ namespace SDT621_SectionC_Question1
         private void btnFind_Click(object sender, EventArgs e)
         {
             string code = txtCode.Text;
-            if (!validateCodeTextbox(code)) return;
+            if (!validateCodeTextbox(code, "find")) return;
         }
 
-        public bool validateCodeTextbox(string code)
+        public bool validateCodeTextbox(string code, string action)
         {
             if (string.IsNullOrEmpty(code))
             {
-                lblOutput.Text = "Please enter the code to find";
+                lblOutput.Text = $"Please enter the code to {action}";
                 return false;
             }
 
