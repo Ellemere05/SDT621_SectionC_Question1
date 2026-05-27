@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,9 +24,11 @@ namespace SDT621_SectionC_Question1
             string make = txtMake.Text;
             int quantity = 0;
 
-            if (string.IsNullOrWhiteSpace(code) || string.IsNullOrWhiteSpace(make))
+            validateCodeTextbox(code);
+
+            if (string.IsNullOrWhiteSpace(make))
             {
-                lblOutput.Text = "Please enter both code and/or make";
+                lblOutput.Text = "Please enter valid make";
                 return;
             }
 
@@ -54,20 +57,9 @@ namespace SDT621_SectionC_Question1
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string code = txtCode.Text;
+            validateCodeTextbox(code);
 
-            if (string.IsNullOrWhiteSpace(code))
-            {
-                lblOutput.Text = "Please enter the code to delete";
-                return;
-            }
-
-            if(code == "Code")
-            {
-                lblOutput.Text = "Invalid code given";
-                return;
-            }
-
-            for(int i = 1; i < tblMobilePhones.RowCount; i++)
+            for (int i = 1; i < tblMobilePhones.RowCount; i++)
             {
                 Label lblCodeSearch = tblMobilePhones.GetControlFromPosition(0, i) as Label;
                 if (lblCodeSearch != null && lblCodeSearch.Text == code)
@@ -86,6 +78,27 @@ namespace SDT621_SectionC_Question1
             }
 
             lblOutput.Text = "Can not find that code";
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            string code = txtCode.Text;
+            validateCodeTextbox(code);
+        }
+
+        public void validateCodeTextbox(string code)
+        {
+            if (string.IsNullOrEmpty(code))
+            {
+                lblOutput.Text = "Please enter the code to find";
+                return;
+            }
+
+            if (code == "Code")
+            {
+                lblOutput.Text = "Invalid code given";
+                return;
+            }
         }
     }
 }
