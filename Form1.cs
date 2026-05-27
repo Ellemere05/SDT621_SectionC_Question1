@@ -35,7 +35,18 @@ namespace SDT621_SectionC_Question1
                 return;
             }
 
+            if(tblMobilePhones.RowCount == 1)
+            {
+                tblMobilePhones.Controls.Add(new Label { Text = "Code" }, 0, 0);
+                tblMobilePhones.Controls.Add(new Label { Text = "Make" }, 1, 0);
+                tblMobilePhones.Controls.Add(new Label { Text = "Quantity" }, 2, 0);
+            }
 
+            int rowIndex = tblMobilePhones.RowCount++;
+            tblMobilePhones.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            tblMobilePhones.Controls.Add(new Label { Text = code }, 0, rowIndex);
+            tblMobilePhones.Controls.Add(new Label { Text = make }, 1, rowIndex);
+            tblMobilePhones.Controls.Add(new Label { Text = quantity.ToString() }, 2, rowIndex);
         }
     }
 }

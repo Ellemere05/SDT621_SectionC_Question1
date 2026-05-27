@@ -128,14 +128,13 @@
             // tblMobilePhones
             // 
             this.tblMobilePhones.ColumnCount = 3;
-            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tblMobilePhones.Location = new System.Drawing.Point(645, 111);
             this.tblMobilePhones.Name = "tblMobilePhones";
             this.tblMobilePhones.RowCount = 1;
-            this.tblMobilePhones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39F));
-            this.tblMobilePhones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61F));
+            this.tblMobilePhones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblMobilePhones.Size = new System.Drawing.Size(269, 212);
             this.tblMobilePhones.TabIndex = 11;
             // 
