@@ -24,7 +24,7 @@ namespace SDT621_SectionC_Question1
             string make = txtMake.Text;
             int quantity = 0;
 
-            if (!validateCodeTextbox(code, "add")) return;
+            if (!ValidateCodeTextbox(code, "add")) return;
 
             if (string.IsNullOrWhiteSpace(make))
             {
@@ -57,24 +57,12 @@ namespace SDT621_SectionC_Question1
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string code = txtCode.Text;
-            if (!validateCodeTextbox(code, "delete")) return;
+            if (!ValidateCodeTextbox(code, "delete")) return;
 
-            for (int i = 1; i < tblMobilePhones.RowCount; i++)
+            if(FindOrDeleteRecord(code, 1)) //1 for delete action
             {
-                Label lblCodeSearch = tblMobilePhones.GetControlFromPosition(0, i) as Label;
-                if (lblCodeSearch != null && lblCodeSearch.Text == code)
-                {
-                    for (int j = 0; j < tblMobilePhones.ColumnCount; j++)
-                    {
-                        Control control = tblMobilePhones.GetControlFromPosition(j, i);
-                        if (control != null)
-                        {
-                            tblMobilePhones.Controls.Remove(control);
-                        }
-                    }
-                    lblOutput.Text = "Record Deleted";
-                    return;
-                }
+                lblOutput.Text = "Record Deleted";
+                return;
             }
 
             lblOutput.Text = "Can not find that code";
@@ -83,10 +71,18 @@ namespace SDT621_SectionC_Question1
         private void btnFind_Click(object sender, EventArgs e)
         {
             string code = txtCode.Text;
-            if (!validateCodeTextbox(code, "find")) return;
+            if (!ValidateCodeTextbox(code, "find")) return;
+
+            if(FindOrDeleteRecord(code, 0)) //0 for find action
+            {
+                lblOutput.Text = "Record Found";
+                return;
+            }
+
+            lblOutput.Text = "Record NOT Found";
         }
 
-        public bool validateCodeTextbox(string code, string action)
+        public bool ValidateCodeTextbox(string code, string action)
         {
             if (string.IsNullOrEmpty(code))
             {
@@ -101,6 +97,30 @@ namespace SDT621_SectionC_Question1
             }
 
             return true;
+        }
+
+        public bool FindOrDeleteRecord(string code, int action)
+        {
+            for (int i = 1; i < tblMobilePhones.RowCount; i++)
+            {
+                Label lblCodeSearch = tblMobilePhones.GetControlFromPosition(0, i) as Label;
+                if (lblCodeSearch != null && lblCodeSearch.Text == code)
+                {
+                    if(action == 1) //delete action
+                    {
+                        for (int j = 0; j < tblMobilePhones.ColumnCount; j++)
+                        {
+                            Control control = tblMobilePhones.GetControlFromPosition(j, i);
+                            if (control != null)
+                            {
+                                tblMobilePhones.Controls.Remove(control);
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
