@@ -38,6 +38,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
+            this.tblMobilePhones = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // lblOutput
@@ -124,11 +125,26 @@
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
             // 
+            // tblMobilePhones
+            // 
+            this.tblMobilePhones.ColumnCount = 3;
+            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblMobilePhones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tblMobilePhones.Location = new System.Drawing.Point(645, 111);
+            this.tblMobilePhones.Name = "tblMobilePhones";
+            this.tblMobilePhones.RowCount = 1;
+            this.tblMobilePhones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.tblMobilePhones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61F));
+            this.tblMobilePhones.Size = new System.Drawing.Size(269, 212);
+            this.tblMobilePhones.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 450);
+            this.ClientSize = new System.Drawing.Size(1115, 450);
+            this.Controls.Add(this.tblMobilePhones);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -158,6 +174,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.TableLayoutPanel tblMobilePhones;
     }
 }
 
