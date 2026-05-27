@@ -16,5 +16,26 @@ namespace SDT621_SectionC_Question1
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string code = txtCode.Text;
+            string make = txtMake.Text;
+            int quantity = 0;
+
+            if (string.IsNullOrWhiteSpace(code) || string.IsNullOrWhiteSpace(make))
+            {
+                lblOutput.Text = "Please enter both code and make.";
+                return;
+            }
+
+            if (!int.TryParse(txtQuantity.Text, out quantity))
+            {
+                lblOutput.Text = "Please enter a valid quantity.";
+                return;
+            }
+
+
+        }
     }
 }
